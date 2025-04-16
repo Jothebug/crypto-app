@@ -20,6 +20,7 @@
 		B5F798532DAFF451007153E3 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F798522DAFF451007153E3 /* PreviewProvider.swift */; };
 		B5F798572DAFFC96007153E3 /* MockupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F798562DAFFC96007153E3 /* MockupData.swift */; };
 		B5F798592DB0017C007153E3 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F798582DB0017C007153E3 /* Double.swift */; };
+		B5F7985B2DB013D5007153E3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7985A2DB013D5007153E3 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B5F798522DAFF451007153E3 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		B5F798562DAFFC96007153E3 /* MockupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupData.swift; sourceTree = "<group>"; };
 		B5F798582DB0017C007153E3 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		B5F7985A2DB013D5007153E3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		B5E1706D2DAD5A3700ED9673 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B5F7985A2DB013D5007153E3 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				B5E170582DAD521700ED9673 /* crypto_appApp.swift in Sources */,
 				B5E170732DAD5C2F00ED9673 /* CircleButtonView.swift in Sources */,
 				B5E170692DAD55A600ED9673 /* Color.swift in Sources */,
+				B5F7985B2DB013D5007153E3 /* HomeViewModel.swift in Sources */,
 				B5E170752DAD6B8C00ED9673 /* CircleButtonAnimationView.swift in Sources */,
 				B5F798532DAFF451007153E3 /* PreviewProvider.swift in Sources */,
 				B5F798592DB0017C007153E3 /* Double.swift in Sources */,
