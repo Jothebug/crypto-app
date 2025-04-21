@@ -51,5 +51,4 @@ class NetworkingManager {
                 print(error.localizedDescription)
         }
     }
-    
 }
