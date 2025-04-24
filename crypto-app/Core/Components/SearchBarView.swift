@@ -29,7 +29,7 @@ struct SearchBarView: View {
                         .foregroundColor(Color.theme.accent)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
-                            UIApplication.shared.endEditing()
+                            UIApplication.shared.endEditing() // crucial for disappearing keyboard immediately when taping into xmark btn
                             searchText = ""
                         }
                     ,alignment: .trailing

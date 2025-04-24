@@ -30,12 +30,6 @@ class HomeViewModel: ObservableObject {
     }
     
     func addSubcribers() {
-//        dataService.$allCoins
-//            .sink { [weak self] (returnedCoins) in
-//                self?.allCoins = returnedCoins
-//            }
-//            .store(in: &cancellables)
-        
         // updates allCoins
         $searchText
             .combineLatest(dataService.$allCoins)
@@ -51,9 +45,8 @@ class HomeViewModel: ObservableObject {
         guard !text.isEmpty else {
             return coins
         }
-        
         let lowercasedText = text.lowercased()
-       return coins.filter { (coin) -> Bool in
+        return coins.filter { (coin) -> Bool in
             return coin.name.lowercased().contains(lowercasedText) ||
                   coin.symbol.lowercased().contains(lowercasedText) ||
                   coin.id.lowercased().contains(lowercasedText)
