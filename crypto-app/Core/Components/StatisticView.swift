@@ -10,7 +10,6 @@ import SwiftUI
 struct StatisticView: View {
     
     let stat: StatisticModel
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(stat.title)
@@ -24,15 +23,18 @@ struct StatisticView: View {
                 Image(systemName: "triangle.fill")
                     .font(.caption2)
                     .rotationEffect(
-                        Angle(degrees:(stat.percentageChange ?? 0) < 0 ? 180 :0))
+                        Angle(degrees: isNegativePercentageChange ? 180 :0))
                 
                 Text(stat.percentageChange?.asPercentString() ?? "")
                     .font(.caption)
                     .bold()
             }
-            .foregroundColor((stat.percentageChange ?? 0) < 0 ? Color.theme.red : Color.theme.green)
+            .foregroundColor(isNegativePercentageChange ? Color.theme.red : Color.theme.green)
             .opacity(stat.percentageChange == nil ? 0.0 : 1.0)
         }
+    }
+    private var isNegativePercentageChange: Bool {
+        (stat.percentageChange ?? 0) < 0
     }
 }
 
