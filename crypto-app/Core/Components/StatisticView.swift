@@ -38,6 +38,8 @@ struct StatisticView: View {
     }
 }
 
-#Preview {
+//@available(iOS 17.0, *)
+#Preview(traits: .sizeThatFitsLayout) {
     StatisticView(stat: STATISTIC_DATA_1)
+        .preferredColorScheme(.dark)
 }
