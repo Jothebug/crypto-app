@@ -20,7 +20,6 @@ struct HomeView: View {
                 .ignoresSafeArea()
                 .sheet(isPresented: $showPorfolioView) {
                     PortfolioView()
-                        .environmentObject(vm)
                 }
             // content layer
             VStack {

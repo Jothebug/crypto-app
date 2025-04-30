@@ -14,14 +14,12 @@ struct PortfolioView: View {
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
     
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBarView(searchText: $vm.searchText)
                     coinLogoList
-                    
                     if selectedCoin != nil {
                         portfolioInputSection
                     }
@@ -36,6 +34,11 @@ struct PortfolioView: View {
                     trailingNavBarButton
                 }
             })
+            .onChange(of: vm.searchText) {
+                if vm.searchText == "" {
+                    removeSelectedCoin()
+                }
+            }
         }
     }
 }
