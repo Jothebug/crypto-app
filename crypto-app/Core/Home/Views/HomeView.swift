@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var showPorfolio: Bool = false // animate right
     @State private var showPorfolioView: Bool = false // new sheet
     
+    
     var body: some View {
         ZStack {
             // background layer
@@ -90,11 +91,10 @@ extension HomeView {
         }
         .listStyle(PlainListStyle())
     }
-    
     private var portfolioCoinsList: some View {
         List {
             ForEach(vm.portfolioCoins) { coin in
-                CoinRowView(coin: coin, showHoldingColumn: false)
+                CoinRowView(coin: coin, showHoldingColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0,
                                          bottom: 10, trailing: 10))
             }

@@ -52,13 +52,13 @@ struct PortfolioView: View {
         private var coinLogoList: some View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 10) {
-                    ForEach(vm.allCoins) { coin in
+                    ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
                         CoinLogoView(coin: coin)
                             .frame(width: 75)
                             .padding(4)
                             .onTapGesture {
                                 withAnimation(.easeIn) {
-                                    selectedCoin = coin
+                                    updateSelectedCoin(coin: coin)
                                 }
                             }
                             .background(
@@ -71,6 +71,17 @@ struct PortfolioView: View {
                 }
                 .frame(height: 120)
                 .padding(.leading)
+            }
+        }
+        
+        private func updateSelectedCoin(coin: CoinModel) {
+            selectedCoin = coin
+            
+            if let portfolioCoin = vm.portfolioCoins.first(where: {$0.id == coin.id}),
+               let amount = portfolioCoin.currentHoldings {
+                quantityText = "\(amount)"
+            } else {
+                quantityText = ""
             }
         }
         
@@ -113,7 +124,9 @@ struct PortfolioView: View {
                 Image(systemName: "checkmark")
                     .opacity(showCheckmark ? 1.0 : 0.0)
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    saveButtonPressed()
+                }, label: {
                     Text("Save".uppercased())
                 })
                 .opacity(
@@ -123,17 +136,20 @@ struct PortfolioView: View {
         }
         
         private func saveButtonPressed() {
-            guard let coin = selectedCoin else {return}
+            guard 
+                let coin = selectedCoin,
+                let amount = Double(quantityText)
+                else { return }
             
             // save portfolio
-            
+            vm.updatePortfolio(coin: coin, amount: amount)
             // show checkmark
             withAnimation(.easeIn) {
                 showCheckmark = true
+                removeSelectedCoin()
             }
             // hide keyboard
             UIApplication.shared.endEditing()
-            
             // hide checkmark
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 withAnimation(.easeOut) {
