@@ -47,12 +47,11 @@ struct PortfolioView: View {
     PortfolioView()
         .environmentObject(HomeViewModel())
 }
-
     extension PortfolioView {
         private var coinLogoList: some View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 10) {
-                    ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
+                    ForEach(showCoinList()) { coin in
                         CoinLogoView(coin: coin)
                             .frame(width: 75)
                             .padding(4)
@@ -74,11 +73,20 @@ struct PortfolioView: View {
             }
         }
         
+        private func showCoinList() -> [CoinModel] {
+            if vm.searchText.isEmpty && !vm.portfolioCoins.isEmpty {
+                return vm.portfolioCoins
+            } else {
+                return vm.allCoins
+            }
+        }
+        
         private func updateSelectedCoin(coin: CoinModel) {
             selectedCoin = coin
             
             if let portfolioCoin = vm.portfolioCoins.first(where: {$0.id == coin.id}),
-               let amount = portfolioCoin.currentHoldings {
+               let amount = portfolioCoin.currentHoldings 
+            {
                 quantityText = "\(amount)"
             } else {
                 quantityText = ""
