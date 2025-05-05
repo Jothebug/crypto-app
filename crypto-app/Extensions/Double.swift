@@ -9,49 +9,15 @@ import Foundation
 
 extension Double {
     
-    /// converts a Double into a Currency with 2 decimal places
-    /// ```
-    /// Convert 1234.56 to $1,234.56
-    /// ```
-    private var currencyFormatter2: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.usesGroupingSeparator = true
-        formatter.numberStyle = .currency
-        //formatter.locale = .current // <- default value
-        //formatter.currencyCode = "usd" // <- change currency
-        //formatter.currencySymbol = "$" // <- change currency symbol
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }
-    
     /// converts a Double into a Currency  as a String with 2 decimal places
     /// ```
     /// Convert 1234.56 to $1,234.56
     /// ```
     func asCurrencyWith2Decimals() -> String {
         let number = NSNumber(value: self)
-        return currencyFormatter2.string(from: number) ?? "0.00"
+        return currencyFormatter(minimumFractionDigits: 2, maximumFractionDigits: 2).string(from: number) ?? "0.00"
     }
     
-    /// Converts a Double into a Currency with 2-6 decimal places
-     /// ```
-     /// Convert 1234.56 to $1,234.56
-     /// Convert 12.3456 to $12.3456
-     /// Convert 0.123456 to $0.123456
-     /// ```
-     private var currencyFormatter6: NumberFormatter {
-         let formatter = NumberFormatter()
-         formatter.usesGroupingSeparator = true
-         formatter.numberStyle = .currency
-         //formatter.locale = .current // <- default value
-         //formatter.currencyCode = "usd" // <- change currency
-         //formatter.currencySymbol = "$" // <- change currency symbol
-         formatter.minimumFractionDigits = 2
-         formatter.maximumFractionDigits = 6
-         return formatter
-     }
-     
      /// Converts a Double into a Currency as a String with 2-6 decimal places
      /// ```
      /// Convert 1234.56 to "$1,234.56"
@@ -60,7 +26,7 @@ extension Double {
      /// ```
      func asCurrencyWith6Decimals() -> String {
          let number = NSNumber(value: self)
-         return currencyFormatter6.string(from: number) ?? "$0.00"
+         return currencyFormatter(minimumFractionDigits: 2, maximumFractionDigits: 6).string(from: number) ?? "$0.00"
      }
      
     
@@ -119,4 +85,18 @@ extension Double {
             }
         }
     
+    private func currencyFormatter(minimumFractionDigits: Int, maximumFractionDigits: Int) -> NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
+        //formatter.locale = .current // <- default value
+        
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.currencyCode = "usd" // <- change currency
+        formatter.currencySymbol = "$" // <- change currency symbol
+        
+        formatter.minimumFractionDigits = minimumFractionDigits
+        formatter.maximumFractionDigits = maximumFractionDigits
+        return formatter
+    }
 }
