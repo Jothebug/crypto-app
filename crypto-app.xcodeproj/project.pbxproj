@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B507F4422DC9E8D800CBCC44 /* RowTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507F4412DC9E8D800CBCC44 /* RowTitle.swift */; };
+		B507F4442DC9F20D00CBCC44 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507F4432DC9F20D00CBCC44 /* SortOption.swift */; };
 		B51E68EE2DBA94780089E851 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E68ED2DBA94780089E851 /* StatisticModel.swift */; };
 		B51E68F02DBA966E0089E851 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E68EF2DBA966E0089E851 /* StatisticView.swift */; };
 		B51E68F42DBA9A390089E851 /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E68F32DBA9A390089E851 /* HomeStatsView.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B507F4412DC9E8D800CBCC44 /* RowTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTitle.swift; sourceTree = "<group>"; };
+		B507F4432DC9F20D00CBCC44 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		B51E68ED2DBA94780089E851 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		B51E68EF2DBA966E0089E851 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		B51E68F32DBA9A390089E851 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 				B5F798582DB0017C007153E3 /* Double.swift */,
 				B5B03BDE2DB7ECE700195F03 /* UIApplication.swift */,
 				B51E68F52DBAA6540089E851 /* UIScreen.swift */,
+				B507F4432DC9F20D00CBCC44 /* SortOption.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				B5B03BDC2DB7E66800195F03 /* SearchBarView.swift */,
 				B51E68EF2DBA966E0089E851 /* StatisticView.swift */,
 				B580C2C92DC12A9A00722A8C /* XMarkButton.swift */,
+				B507F4412DC9E8D800CBCC44 /* RowTitle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				B5D85BD42DAEC8E60062BF05 /* CoinRowView.swift in Sources */,
 				B51E68EE2DBA94780089E851 /* StatisticModel.swift in Sources */,
 				B5E1705A2DAD521700ED9673 /* ContentView.swift in Sources */,
+				B507F4422DC9E8D800CBCC44 /* RowTitle.swift in Sources */,
 				B5F798572DAFFC96007153E3 /* MockupData.swift in Sources */,
 				B5E1706F2DAD5A4E00ED9673 /* HomeView.swift in Sources */,
 				B59536402DBD48B000837711 /* MarketDataService.swift in Sources */,
@@ -326,6 +333,7 @@
 				B5E170732DAD5C2F00ED9673 /* CircleButtonView.swift in Sources */,
 				B51E68F62DBAA6540089E851 /* UIScreen.swift in Sources */,
 				B5E170692DAD55A600ED9673 /* Color.swift in Sources */,
+				B507F4442DC9F20D00CBCC44 /* SortOption.swift in Sources */,
 				B51E68F02DBA966E0089E851 /* StatisticView.swift in Sources */,
 				B5B03BDF2DB7ECE700195F03 /* UIApplication.swift in Sources */,
 				B580C2CA2DC12A9A00722A8C /* XMarkButton.swift in Sources */,

@@ -22,10 +22,6 @@ class HomeViewModel: ObservableObject {
     private let portfolioDataService = PortfolioDataService()
     private var cancellables = Set<AnyCancellable>()
     
-    enum SortOption {
-        case rank, rankReversed, holdings, holdingsReversed, price, priceReversed
-    }
-    
     init() {
         addSubcribers()
     }
@@ -76,7 +72,6 @@ class HomeViewModel: ObservableObject {
     private func filterAndSortCoin(text: String, coins: [CoinModel], sort: SortOption) -> [CoinModel] {
         var updatedCoins = filterCoin(text: text, coins: coins)
         sortCoins(sort: sort, coins: &updatedCoins)
-        //        let sortedCoins = sortCoins(sort: sort, coins: filterCoins)
         
         return updatedCoins
     }
@@ -92,19 +87,6 @@ class HomeViewModel: ObservableObject {
                   coin.id.lowercased().contains(lowercasedText)
         }
     }
-    
-//    private func sortCoins(sort: SortOption, coins: [CoinModel]) -> [CoinModel] {
-//        switch sort {
-//            case .rank, .holdings:
-//                return coins.sorted(by: { $0.rank < $1.rank })
-//            case .rankReversed, .holdingsReversed:
-//                return coins.sorted(by: { $0.rank > $1.rank })
-//            case .price:
-//                return coins.sorted(by: { $0.currentPrice > $1.currentPrice })
-//            case .priceReversed:
-//                return coins.sorted(by: { $0.currentPrice < $1.currentPrice })
-//        }
-//    }
     
     private func sortCoins(sort: SortOption, coins: inout [CoinModel]) {
         switch sort {
